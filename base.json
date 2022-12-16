@@ -22,7 +22,8 @@
         "github>ministryofjustice/hmpps-renovate-config:node#(?<currentValue>.*)"
       ],
       "matchStringsStrategy": "any",
-      "depNameTemplate": "ministryofjustice/hmpps-renovate-config",
+      "depNameTemplate": "hmpps-renovate-config",
+      "packageNameTemplate": "https://github.com/ministryofjustice/hmpps-renovate-config",
       "datasourceTemplate": "github-tags"
     }
   ]
