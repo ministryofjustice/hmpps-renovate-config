@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":disableDependencyDashboard"
+  ],
+  "timezone": "Europe/London",
+  "schedule": [
+    "after 9am every weekday",
+    "before 5pm every weekday"
+  ],
+  "rebaseWhen": "behind-base-branch",
+  "prCreation": "not-pending",
+  "rollbackPrs": true,
+  "regexManagers": [
+    {
+      "description": "Update hmpps-renovate-config tag in renovate.json",
+      "fileMatch": ["^renovate.json$"],
+      "matchStrings": [
+        "github>ministryofjustice/hmpps-renovate-config:jvm.json#(?<currentValue>.*)",
+        "github>ministryofjustice/hmpps-renovate-config:node.json#(?<currentValue>.*)"
+      ],
+      "matchStringsStrategy": "any",
+      "depNameTemplate": "ministryofjustice/hmpps-renovate-config",
+      "datasourceTemplate": "github-tags"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>ministryofjustice/hmpps-renovate-config:base.json"],
+  "enabledManagers": ["npm", "nvm", "dockerfile", "docker-compose", "helmv3", "helm-values", "circleci"],
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["npm"],
+      "allowedVersions": "8"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "allowedVersions": "18.12-bullseye-slim"
+    },
+    {
+      "matchDatasources": ["orb"],
+      "matchPackageNames": ["cimg/node"],
+      "allowedVersions": "18.12-browsers"
+    }
+  ]
+}
