@@ -4,6 +4,7 @@
     "config:base",
     ":disableDependencyDashboard"
   ],
+  "printConfig": true,
   "timezone": "Europe/London",
   "schedule": [
     "after 9am every weekday",
