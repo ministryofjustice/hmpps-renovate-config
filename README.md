@@ -2,19 +2,21 @@
 
 Shared configuration for [Renovate](https://docs.renovatebot.com) to be used in HMPPS projects
 
-Steps to setup Renovate
+## Steps to setup Renovate
 
 1. Enable Renovate in your project's repository
+   - You can request this on #ask-operations-engineering, see [example](https://mojdt.slack.com/archives/C01BUKJSZD4/p1666077244584669)
 2. Renovate Bot will automatically create a PR called _Configure Renovate_
-3. In that PR update `renovate.json` with the following - change `node` for other named presets:
-```json
-{
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>ministryofjustice/hmpps-renovate-config:node"
-  ]
-}
-```
+3. In that PR update `renovate.json` with the following. Change `node` for other named presets and add any other configuration you like:
+   ```json
+   {
+     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+     "extends": [
+       "github>ministryofjustice/hmpps-renovate-config:node"
+     ]
+   }
+   ```
+4. Merge the PR and Renovate is up and running! 🎉
 
 You can read more about sharable config presets on the [Renovate docs](https://docs.renovatebot.com/config-presets/)
 
@@ -24,13 +26,13 @@ Renovate has a lot of [Configuration Options](https://docs.renovatebot.com/confi
 
 ### Overriding
 
-You can override the configuration defined in `base.json` or the other presets by setting them in your project's `renovate.json`
+You can override any of the configuration defined in `base.json` or the other presets by setting them in your repositories `renovate.json`
 
-In `base.json` we set `"printConfig": true` which logs the full resolved config in the [GitHub App run logs](https://app.renovatebot.com/dashboard#github/ministryofjustice)
+To help team see what configuration Renovate is using we have set `"printConfig": true` which logs the full resolved config each of the [GitHub App run logs](https://app.renovatebot.com/dashboard#github/ministryofjustice)
 
 ### Grouping by release type, per package manager
 
-To reduce the number of PRs raised folks can use the following the group updates for all minor and patch NPM dependencies:  
+To reduce the number of PRs raised teams can use the following the group updates for all minor and patch NPM dependencies:  
 
 ```json
 "packageRules": [
@@ -43,11 +45,13 @@ To reduce the number of PRs raised folks can use the following the group updates
 ]
 ```
 
+You can switch `matchManagers` for any of the others - [Renovate Managers](https://docs.renovatebot.com/modules/manager/)
+
 ### Package stability days
 
-To reduce the noise of PRs being raised as soon as new versions of dependencies are released, you can configure the stability days. This is treated as a check in GitHub and works well in conjunction with `"prCreation": "not-pending"`
+To reduce the noise of PRs being raised as soon as new versions of dependencies are released, teams can configure the stability days, read more on the [Renovate docs](https://docs.renovatebot.com/configuration-options/#stabilitydays)
 
-Read more on the [Renovate docs](https://docs.renovatebot.com/configuration-options/#stabilitydays)
+This is treated as a check in GitHub and works well in conjunction with `"prCreation": "not-pending"`
 
 ```json
 "packageRules": [
