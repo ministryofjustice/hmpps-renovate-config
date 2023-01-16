@@ -45,13 +45,13 @@ To reduce the number of PRs raised teams can use the following the group updates
 ]
 ```
 
-You can switch `matchManagers` for any of the others - [Renovate Managers](https://docs.renovatebot.com/modules/manager/)
+You can switch `matchManagers` for any of the other [Renovate Managers](https://docs.renovatebot.com/modules/manager/)
 
 ### Package stability days
 
 To reduce the noise of PRs being raised as soon as new versions of dependencies are released, teams can configure the stability days, read more on the [Renovate docs](https://docs.renovatebot.com/configuration-options/#stabilitydays)
 
-This is treated as a check in GitHub and works well in conjunction with `"prCreation": "not-pending"`
+This is treated as a check in GitHub and works well in conjunction with `"prCreation": "not-pending"` - see [Renovate docs](https://docs.renovatebot.com/configuration-options/#prcreation) for that)
 
 ```json
 "packageRules": [
@@ -62,9 +62,17 @@ This is treated as a check in GitHub and works well in conjunction with `"prCrea
 ]
 ```
 
+It is possible to override this for dependencies with vulnerability alerts, read more on the [Renovate docs](https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts)
+
+```json
+"vulnerabilityAlerts": {
+  "stabilityDays": 0
+}
+```
+
 ### Pinning versions
 
-Useful to ensure Renovate does not bump dependencies. One way of doing this is using the following, read more on the [Renovate docs](https://docs.renovatebot.com/configuration-options/#allowedversions)
+Useful to ensure Renovate does not bump certain dependencies, as you may not wish to use the latest major version. One way of achieving this is using `allowedVersions`, read more on the [Renovate docs](https://docs.renovatebot.com/configuration-options/#allowedversions)
 
 ```json
 "packageRules": [
