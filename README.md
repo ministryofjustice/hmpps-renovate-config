@@ -1,6 +1,6 @@
 # HMPPS Renovate Config
 
-Shared configuration for [Renovate](https://docs.renovatebot.com) to be used in HMPPS projects
+Shared configuration for [Renovate](https://docs.renovatebot.com) to be used in HMPPS projects - [find places where folks are using it](https://github.com/search?q=user%3Aministryofjustice+hmpps-renovate-config&type=code&ref=advsearch&l=&l=)
 
 ## Steps to setup Renovate
 
@@ -22,13 +22,13 @@ You can read more about sharable config presets on the [Renovate docs](https://d
 
 ## Renovate Config
 
-Renovate has a lot of [Configuration Options](https://docs.renovatebot.com/configuration-options/) and the configuration in this project is relatively light touch to allow teams to setup what works for them.  
+Renovate has a lot of [Configuration Options](https://docs.renovatebot.com/configuration-options/) and the configuration in this project is relatively light touch to allow teams to setup what works for them.
 
 ### Overriding
 
 You can override any of the configuration defined in `base.json` or the other presets by setting them in your repositories `renovate.json`
 
-To help team see what configuration Renovate is using we have set `"printConfig": true` which logs the full resolved config each of the [GitHub App run logs](https://app.renovatebot.com/dashboard#github/ministryofjustice)
+To help teams see what configuration Renovate is using we have set `"printConfig": true` in `base.json` which logs the full resolved config each of the [GitHub App run logs](https://app.renovatebot.com/dashboard#github/ministryofjustice)
 
 ### Grouping by release type, per package manager
 
@@ -82,3 +82,9 @@ Useful to ensure Renovate does not bump certain dependencies, as you may not wis
   }
 ]
 ```
+
+### Assigning reviews
+
+Assigning Renovate PRs to folks can help with visibility to ensure they are approved and merged in a timely manner. Ways to achieve this:
+ - If repositories use [GitHub CODEOWNERS](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) then they can use the config [assigneesFromCodeOwners](https://docs.renovatebot.com/configuration-options/#assigneesfromcodeowners)
+ - [reviewers](https://docs.renovatebot.com/configuration-options/#reviewers) however as per [comment on JIRA](https://dsdmoj.atlassian.net/browse/HEAT-39?focusedCommentId=257543) was not able to get assigning to a GitHub team working, and instead assigned to individuals with `"reviewers": ["neilmendum"]`
