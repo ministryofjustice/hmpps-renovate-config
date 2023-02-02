@@ -2,6 +2,8 @@
 
 Shared configuration for [Renovate](https://docs.renovatebot.com) to be used in HMPPS projects - [find places where folks are using it](https://github.com/search?q=user%3Aministryofjustice+hmpps-renovate-config&type=code&ref=advsearch&l=&l=)
 
+For contributions please contact the [#hmpps_dev](https://mojdt.slack.com/archives/C69NWE339) channel in Slack or raise an issue in this project.
+
 ## Steps to setup Renovate
 
 1. Enable Renovate in your project's repository
