@@ -4,12 +4,6 @@
   "enabledManagers": ["npm", "nvm", "dockerfile", "docker-compose", "helmv3", "helm-values", "circleci", "github-actions"],
   "packageRules": [
     {
-      "matchDatasources": ["orb"],
-      "matchPackageNames": ["hmpps"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "enabled": false
-    },
-    {
       "matchDatasources": ["npm"],
       "matchPackageNames": ["npm"],
       "allowedVersions": "8"

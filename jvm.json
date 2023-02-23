@@ -4,12 +4,6 @@
   "enabledManagers": ["gradle", "gradle-wrapper", "dockerfile", "docker-compose", "helmv3", "helm-values", "circleci", "github-actions"],
   "packageRules": [
     {
-      "matchDatasources": ["orb"],
-      "matchPackageNames": ["hmpps"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "enabled": false
-    },
-    {
       "matchDatasources": ["docker"],
       "allowedVersions": "19-jre-jammy"
     }
