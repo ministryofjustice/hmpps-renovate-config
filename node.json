@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>ministryofjustice/hmpps-renovate-config:base.json"],
-  "enabledManagers": ["npm", "nvm", "dockerfile", "docker-compose", "helmv3", "helm-values", "circleci", "github-actions"],
+  "enabledManagers": ["npm", "nvm", "dockerfile", "docker-compose", "helmv3", "helm-values", "github-actions"],
   "packageRules": [
     {
       "matchDepTypes": ["engines"],

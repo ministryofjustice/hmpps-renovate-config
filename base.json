@@ -13,13 +13,5 @@
   "rebaseWhen": "behind-base-branch",
   "prCreation": "not-pending",
   "branchPrefix": "renovate-",
-  "rollbackPrs": true,
-  "packageRules": [
-    {
-      "matchDatasources": ["orb"],
-      "matchPackageNames": ["hmpps"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "enabled": false
-    }
-  ]
+  "rollbackPrs": true
 }
