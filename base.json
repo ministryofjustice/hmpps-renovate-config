@@ -13,5 +13,6 @@
   "rebaseWhen": "behind-base-branch",
   "prCreation": "not-pending",
   "branchPrefix": "renovate-",
+  "branchConcurrentLimit": 3,
   "rollbackPrs": true
 }
