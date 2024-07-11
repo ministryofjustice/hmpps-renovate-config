@@ -22,9 +22,25 @@ For contributions please contact the [#hmpps_dev](https://mojdt.slack.com/archiv
 
 You can read more about sharable config presets on the [Renovate docs](https://docs.renovatebot.com/config-presets/)
 
+
 ## Renovate Config
 
 Renovate has a lot of [Configuration Options](https://docs.renovatebot.com/configuration-options/) and the configuration in this project is relatively light touch to allow teams to setup what works for them.
+
+
+### Default 'rebaseWhen' rule
+
+We've set the 'rebaseWhen' rule to be 'conflicted' to reduce the amount of CI resource that renovate is using.
+If teams aren't regularly merging the PRs renovate generates, they can build up a hefty backlog and a build per open PR is triggered on each merge.
+
+Even a simple attempt to merge 4 Renovate PRs would lead to (1 + 3) + (1 + 2) + (1 + 1) + (1) = 10 builds.
+If those 4 PRs were ignored whilst other developer changes go in it would trigger (1 + 4) = 5 builds on each merge.   
+
+This setting will mean that Renovate will only rebase if the file renovate is trying to change becomes conflicted. 
+This means teams will have to manually update or re-trigger a branch if it falls behind the main branch and they wish to merge the PR.
+
+This is only a default and can be overriden in individual project configuration but would advise teams not to. 
+
 
 ### Overriding
 
