@@ -9,8 +9,7 @@
     },
     {
       "matchDatasources": ["npm"],
-      "minimumReleaseAge": "3 days",
-      "enabled": false
+      "minimumReleaseAge": "3 days"
     }
   ]
 }
