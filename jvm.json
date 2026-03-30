@@ -1,5 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>ministryofjustice/hmpps-renovate-config:base.json"],
-  "enabledManagers": ["gradle", "gradle-wrapper", "dockerfile", "docker-compose", "helmv3", "helm-values", "github-actions", "pre-commit"]
+  "enabledManagers": ["gradle", "gradle-wrapper", "dockerfile", "docker-compose", "helmv3", "helm-values", "github-actions", "pre-commit"],
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "matchFileNames": [
+        "**/.github/workflows/**/*.ya?ml",
+        "**/.github/actions/**/*.ya?ml"
+      ],
+      "pinDigests": true
+    }
+  ]
 }
