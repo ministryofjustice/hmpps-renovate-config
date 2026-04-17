@@ -17,6 +17,7 @@
         "**/.github/workflows/**/*.ya?ml",
         "**/.github/actions/**/*.ya?ml"
       ],
+      "minimumReleaseAge": "7 days",
       "pinDigests": true
     }
   ]
