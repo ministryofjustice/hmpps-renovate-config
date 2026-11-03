@@ -22,6 +22,20 @@ For contributions please contact the [#hmpps_dev](https://mojdt.slack.com/archiv
 
 You can read more about sharable config presets on the [Renovate docs](https://docs.renovatebot.com/config-presets/)
 
+## Validating configuration
+
+The [Validate Renovate config workflow](.github/workflows/validate-renovate-config.yml) checks all root-level JSON presets on pushes and pull requests, and can also be run manually.
+It uses Renovate's configuration validator in repository mode (`--no-global`) and fails on validation errors or warnings. Migration notices are reported but do not fail the check.
+
+To run the same validation locally with Docker, from the repository root:
+
+```sh
+docker run --rm \
+  --volume "$PWD:/workspace:ro" \
+  --workdir /workspace \
+  ghcr.io/renovatebot/renovate:44.14.1 \
+  renovate-config-validator --no-global *.json
+```
 
 ## Renovate Config
 
