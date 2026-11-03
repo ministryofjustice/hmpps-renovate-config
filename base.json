@@ -10,7 +10,6 @@
     "after 9am every weekday",
     "before 5pm every weekday"
   ],
-  "rebaseWhen": "behind-base-branch",
   "prCreation": "not-pending",
   "branchPrefix": "renovate-",
   "rollbackPrs": true,
