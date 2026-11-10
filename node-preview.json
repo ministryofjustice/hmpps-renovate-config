@@ -5,14 +5,17 @@
   
   "packageRules": [
     {
+      "label": ["renovate-rule-1"],
       "matchDepTypes": ["engines"],
       "enabled": false
     },
     {
+      "label": ["renovate-rule-2"],
       "matchDatasources": ["npm"],
       "minimumReleaseAge": "7 days"
     },
     {
+      "label": ["renovate-rule-3"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": [
         "digest",
@@ -23,11 +26,13 @@
       "registryUrls": ["https://registry.npmjs.org"]
     },
     {
+      "label": ["renovate-rule-4"],
       "matchDatasources": ["npm"],
       "matchPackageNames": ["@ministryofjustice/hmpps-security-assurance-db-client"],
       "registryUrls": ["https://npm.pkg.github.com"]
     },
     {
+      "label": ["renovate-rule-5"],
       "matchManagers": ["github-actions"],
       "matchFileNames": [
         "**/.github/workflows/**/*.ya?ml",
@@ -45,6 +50,7 @@
       "automergeType": "branch"
     },
     {
+      "label": ["renovate-rule-6"],
       "matchDatasources": ["docker","docker-compose"],
       "priority": 1,
       "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
@@ -56,6 +62,7 @@
       "pinDigests": true
     },
     {
+      "label": ["renovate-rule-7"],
       "matchDatasources": ["docker","docker-compose"],
       "priority": 1,
       "groupName": "heat-1708",
