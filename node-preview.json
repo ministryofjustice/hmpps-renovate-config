@@ -73,6 +73,7 @@
       "matchCurrentValue": "24-alpine-runtime",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine-runtime",
       "replacementVersion": "24-apko-main",
+      "recreateWhen": "always",
       "pinDigests": true
     },
     {
@@ -85,6 +86,7 @@
       "matchCurrentValue": "24-alpine",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
       "replacementVersion": "24-npm11-apko-main",
+      "recreateWhen": "always",
       "pinDigests": true
     }
   ]
