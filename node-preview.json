@@ -52,10 +52,24 @@
     {
       "label": ["renovate-rule-6"],
       "matchDatasources": ["docker","docker-compose"],
+      "groupName": "docker-updates",
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "minor"
+      ],     
+      "pinDigests": true,
+      "pinVersions": true,
+      "rebaseWhen": "conflicted",
+      "automerge": true
+    },
+    {
+      "label": ["renovate-rule-6"],
+      "matchDatasources": ["docker","docker-compose"],
       "priority": 1,
       "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
-      "groupName": "heat-1708",
-      "groupSlug": "heat-1708",
+      "groupName": "docker-updates",
+      "groupSlug": "docker-updates",
       "matchCurrentValue": "24-alpine-runtime",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine-runtime",
       "replacementVersion": "24-apko-main",
@@ -65,8 +79,8 @@
       "label": ["renovate-rule-7"],
       "matchDatasources": ["docker","docker-compose"],
       "priority": 1,
-      "groupName": "heat-1708",
-      "groupSlug": "heat-1708",
+      "groupName": "docker-updates",
+      "groupSlug": "docker-updates",
       "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
       "matchCurrentValue": "24-alpine",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
