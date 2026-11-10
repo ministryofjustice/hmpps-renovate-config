@@ -1,0 +1,16 @@
+{
+  "$schema": "https://renovatebot.com",
+  "extends": [
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "groupName": "Non-major updates",
+      "groupSlug": "non-major-updates",
+      "automerge": true,
+      "platformAutomerge": true,
+      "schedule": ["before 5am on monday"]
+    }
+  ]
+}
