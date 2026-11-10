@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>ministryofjustice/hmpps-renovate-config:base"],
+  "extends": ["github>ministryofjustice/hmpps-renovate-config:base", "github>ministryofjustice/hmpps-renovate-config:helpers/github-actions#f-test-renovate"],
   "enabledManagers": ["npm", "nvm", "dockerfile", "docker-compose", "helmv3", "helm-values", "github-actions", "pre-commit"],
   
   "packageRules": [
@@ -14,6 +14,11 @@
     },
     {
       "matchDatasources": ["npm"],
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "minor"
+      ],
       "matchPackageNames": ["@ministryofjustice/**"],
       "registryUrls": ["https://registry.npmjs.org"]
     },
