@@ -43,7 +43,7 @@
       "minimumReleaseAge": "7 days",
       "pinDigests": true,
       "pinVersions": true,
-      "rebaseWhen": "conflicted",
+      "recreateWhen": "always",
       "automerge": true,
       "automergeStrategy": "squash",
       "automergeComment": "Automatically merged by Renovate",
@@ -60,7 +60,7 @@
       ],     
       "pinDigests": true,
       "pinVersions": true,
-      "rebaseWhen": "conflicted",
+      "recreateWhen": "always",
       "automerge": true
     },
     {
@@ -70,7 +70,7 @@
       "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
       "groupName": "docker-updates",
       "groupSlug": "docker-updates",
-      "matchCurrentValue": "24-alpine-runtime",
+      "matchCurrentValue": "24-alpine-runtime*",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine-runtime",
       "replacementVersion": "24-apko-main",
       "recreateWhen": "always",
@@ -83,11 +83,25 @@
       "groupName": "docker-updates",
       "groupSlug": "docker-updates",
       "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
-      "matchCurrentValue": "24-alpine",
+      "matchCurrentValues": "24-alpine",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
       "replacementVersion": "24-npm11-apko-main",
       "recreateWhen": "always",
       "pinDigests": true
+    },
+    {
+      "label": ["renovate-rule-8"],
+      "matchDatasources": ["docker","docker-compose"],
+      "priority": 1,
+      "groupName": "docker-updates",
+      "groupSlug": "docker-updates",
+      "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
+      "matchCurrentValues": "24-alpine-[0-9]*",
+      "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
+      "replacementVersion": "24-npm11-apko-main",
+      "recreateWhen": "always",
+      "pinDigests": true,
+      "description": "Update node-alpine images to the hardened container images that have date suffix"
     }
   ]
 }
