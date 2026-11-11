@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
       "labels": ["platform-updates"],
@@ -9,8 +10,6 @@
         "patch",
         "minor"
       ],     
-      "pinDigests": true,
-      "pinVersions": true,
       "recreateWhen": "always",
       "automerge": true
     },
@@ -36,7 +35,7 @@
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
       "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
-      "matchCurrentValues": "24-alpine",
+      "matchCurrentValue": "24-alpine",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
       "replacementVersion": "24-npm11-apko-main",
       "recreateWhen": "always",
@@ -51,7 +50,7 @@
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
       "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
-      "matchCurrentValues": "24-alpine-[0-9]*",
+      "matchCurrentValue": "24-alpine-[0-9]*",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
       "replacementVersion": "24-npm11-apko-main",
       "recreateWhen": "always",
@@ -81,7 +80,7 @@
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
       "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
-      "matchCurrentValues": "26-alpine",
+      "matchCurrentValue": "26-alpine",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
       "replacementVersion": "26-npm12-apko-main",
       "recreateWhen": "always",
@@ -96,7 +95,7 @@
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
       "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
-      "matchCurrentValues": "26-alpine-[0-9]*",
+      "matchCurrentValue": "26-alpine-[0-9]*",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
       "replacementVersion": "26-npm12-apko-main",
       "recreateWhen": "always",
@@ -111,7 +110,7 @@
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
       "matchPackageNames": ["^node"],
-      "matchCurrentValues": "24-alpine",
+      "matchCurrentValue": "24-alpine",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
       "replacementVersion": "24-npm11-apko-main",
       "recreateWhen": "always",
@@ -127,7 +126,7 @@
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
       "matchPackageNames": ["^node"],
-      "matchCurrentValues": "26-alpine",
+      "matchCurrentValue": "26-alpine",
       "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
       "replacementVersion": "26-npm12-apko-main",
       "recreateWhen": "always",

@@ -4,7 +4,7 @@
 		{
 			"customType": "regex",
 			"managerFilePatterns": ["/(^|/)\\.npmrc$/"],
-			"matchStrings": ["(?m)^npm-version\\s*=\\s*[\"']?(?<currentValue>[^\\s\"'#]+)"],
+			"matchStrings": ["(^|\\n)npm-version\\s*=\\s*[\"']?(?<currentValue>[^\\s\"'#]+)"],
 			"depNameTemplate": "npm",
 			"datasourceTemplate": "npm"
 		}
@@ -17,7 +17,8 @@
 			"groupName": "Node.js dependency updates",
 			"groupSlug": "nodejs-dependency-updates",
 			"automerge": true,
-			"platformAutomerge": true
+			"platformAutomerge": true,
+			"excludePackageNames": ["@ministryofjustice/hmpps-security-assurance-db-client"]
 		},
 		{
 			"description": "Enable package.json engine updates, disabled by the shared Node preset",
