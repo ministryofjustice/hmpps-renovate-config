@@ -1,21 +1,27 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>ministryofjustice/hmpps-renovate-config:base"],
+  "extends": [
+    "github>ministryofjustice/hmpps-renovate-config:base#f-test-renovate",
+    "github>ministryofjustice/hmpps-renovate-config://helpers/docker.json#f-test-renovate",
+    "github>ministryofjustice/hmpps-renovate-config://helpers/node.json#f-test-renovate",
+    "github>ministryofjustice/hmpps-renovate-config://helpers/helm.json#f-test-renovate",
+    "github>ministryofjustice/hmpps-renovate-config://helpers/github-actions.json#f-test-renovate"
+  ],
   "enabledManagers": ["npm", "nvm", "dockerfile", "docker-compose", "helmv3", "helm-values", "github-actions", "pre-commit"],
   "prHourlyLimit": 0,
   "packageRules": [
     {
-      "label": ["renovate-rule-1"],
+      "labels": ["renovate-rule-1"],
       "matchDepTypes": ["engines"],
       "enabled": false
     },
     {
-      "label": ["renovate-rule-2"],
+      "labels": ["renovate-rule-2"],
       "matchDatasources": ["npm"],
       "minimumReleaseAge": "7 days"
     },
     {
-      "label": ["renovate-rule-3"],
+      "labels": ["renovate-rule-3"],
       "matchDatasources": ["npm"],
       "matchUpdateTypes": [
         "digest",
@@ -26,13 +32,13 @@
       "registryUrls": ["https://registry.npmjs.org"]
     },
     {
-      "label": ["renovate-rule-4"],
+      "labels": ["renovate-rule-4"],
       "matchDatasources": ["npm"],
       "matchPackageNames": ["@ministryofjustice/hmpps-security-assurance-db-client"],
       "registryUrls": ["https://npm.pkg.github.com"]
     },
     {
-      "label": ["renovate-rule-5"],
+      "labels": ["renovate-rule-5"],
       "matchManagers": ["github-actions"],
       "matchFileNames": [
         "**/.github/workflows/**/*.ya?ml",
@@ -50,7 +56,7 @@
       "automergeType": "branch"
     },
     {
-      "label": ["renovate-rule-6"],
+      "labels": ["renovate-rule-6"],
       "matchDatasources": ["docker","docker-compose"],
       "groupName": "docker-updates",
       "matchUpdateTypes": [
@@ -62,46 +68,6 @@
       "pinVersions": true,
       "recreateWhen": "always",
       "automerge": true
-    },
-    {
-      "label": ["renovate-rule-6"],
-      "matchDatasources": ["docker","docker-compose"],
-      "priority": 1,
-      "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
-      "groupName": "docker-updates",
-      "groupSlug": "docker-updates",
-      "matchCurrentValue": "24-alpine-runtime*",
-      "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine-runtime",
-      "replacementVersion": "24-apko-main",
-      "recreateWhen": "always",
-      "pinDigests": true
-    },
-    {
-      "label": ["renovate-rule-7"],
-      "matchDatasources": ["docker","docker-compose"],
-      "priority": 1,
-      "groupName": "docker-updates",
-      "groupSlug": "docker-updates",
-      "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
-      "matchCurrentValues": "24-alpine",
-      "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
-      "replacementVersion": "24-npm11-apko-main",
-      "recreateWhen": "always",
-      "pinDigests": true
-    },
-    {
-      "label": ["renovate-rule-8"],
-      "matchDatasources": ["docker","docker-compose"],
-      "priority": 1,
-      "groupName": "docker-updates",
-      "groupSlug": "docker-updates",
-      "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
-      "matchCurrentValues": "24-alpine-[0-9]*",
-      "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
-      "replacementVersion": "24-npm11-apko-main",
-      "recreateWhen": "always",
-      "pinDigests": true,
-      "description": "Update node-alpine images to the hardened container images that have date suffix"
-    }
+    }    
   ]
 }

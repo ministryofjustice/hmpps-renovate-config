@@ -1,0 +1,14 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"packageRules": [
+		{
+			"description": "Automerge patch updates to Helm chart dependencies",
+			"matchManagers": ["helmv3"],
+			"matchUpdateTypes": ["patch"],
+			"groupName": "Platform Updates",
+			"groupSlug": "platform-updates",
+			"automerge": true,
+            
+		}
+	]
+}

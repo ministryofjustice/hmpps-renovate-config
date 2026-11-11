@@ -25,4 +25,4 @@ jobs:
             --volume "$PWD:/workspace:ro" \
             --workdir /workspace \
             ghcr.io/renovatebot/renovate:44.14.1 \
-            renovate-config-validator --no-global *.json
+            renovate-config-validator --no-global *.json helpers/helm.json
