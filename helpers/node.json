@@ -1,0 +1,118 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"customManagers": [
+		{
+			"customType": "regex",
+			"managerFilePatterns": ["/(^|/)\\.npmrc$/"],
+			"matchStrings": ["(?m)^npm-version\\s*=\\s*[\"']?(?<currentValue>[^\\s\"'#]+)"],
+			"depNameTemplate": "npm",
+			"datasourceTemplate": "npm"
+		}
+	],
+	"packageRules": [
+		{
+			"description": "Group and automerge non-major npm dependency updates after checks pass",
+			"matchManagers": ["npm"],
+			"matchUpdateTypes": ["pin", "digest", "patch", "minor"],
+			"groupName": "Node.js dependency updates",
+			"groupSlug": "nodejs-dependency-updates",
+			"automerge": true,
+			"platformAutomerge": true
+		},
+		{
+			"description": "Enable package.json engine updates, disabled by the shared Node preset",
+			"matchManagers": ["npm"],
+			"matchDepTypes": ["engines"],
+			"enabled": true
+		},
+		{
+			"description": "Group and automerge non-major Node.js engine updates separately",
+			"matchManagers": ["npm"],
+			"matchDepTypes": ["engines"],
+			"matchPackageNames": ["node"],
+			"matchUpdateTypes": ["pin", "digest", "patch", "minor"],
+			"groupName": "Node.js runtime",
+			"groupSlug": "nodejs-runtime",
+			"automerge": true,
+			"platformAutomerge": true
+		},
+		{
+			"description": "Group Node.js engine major updates with Node image major updates",
+			"matchManagers": ["npm"],
+			"matchDepTypes": ["engines"],
+			"matchPackageNames": ["node"],
+			"matchUpdateTypes": ["major"],
+			"groupName": "Node.js runtime major",
+			"groupSlug": "nodejs-runtime-major"
+		},
+		{
+			"description": "Group and automerge non-major Node.js version file updates",
+			"matchManagers": ["nvm"],
+			"matchPackageNames": ["node"],
+			"matchUpdateTypes": ["pin", "digest", "patch", "minor"],
+			"groupName": "Node.js runtime",
+			"groupSlug": "nodejs-runtime",
+			"automerge": true,
+			"platformAutomerge": true
+		},
+		{
+			"description": "Group Node.js version file major updates with Node image major updates",
+			"matchManagers": ["nvm"],
+			"matchPackageNames": ["node"],
+			"matchUpdateTypes": ["major"],
+			"groupName": "Node.js runtime major",
+			"groupSlug": "nodejs-runtime-major"
+		},
+		{
+			"description": "Group Node.js Docker image major updates with Node runtime engine updates",
+			"matchDatasources": ["docker"],
+			"matchPackageNames": [
+				"node",
+				"ghcr.io/ministryofjustice/hmpps-node",
+				"ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
+				"ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine-runtime"
+			],
+			"matchUpdateTypes": ["major"],
+			"groupName": "Node.js runtime major",
+			"groupSlug": "nodejs-runtime-major"
+		},
+		{
+			"description": "Group and automerge non-major npm engine updates separately",
+			"matchManagers": ["npm"],
+			"matchDepTypes": ["engines"],
+			"matchPackageNames": ["npm"],
+			"matchUpdateTypes": ["pin", "digest", "patch", "minor"],
+			"groupName": "npm runtime",
+			"groupSlug": "npm-runtime",
+			"automerge": true,
+			"platformAutomerge": true
+		},
+		{
+			"description": "Group and automerge non-major npm-version settings from .npmrc",
+			"matchManagers": ["custom.regex"],
+			"matchPackageNames": ["npm"],
+			"matchUpdateTypes": ["pin", "digest", "patch", "minor"],
+			"groupName": "npm runtime",
+			"groupSlug": "npm-runtime",
+			"automerge": true,
+			"platformAutomerge": true
+		},
+		{
+			"description": "Group major npm engine updates separately",
+			"matchManagers": ["npm"],
+			"matchDepTypes": ["engines"],
+			"matchPackageNames": ["npm"],
+			"matchUpdateTypes": ["major"],
+			"groupName": "npm runtime major",
+			"groupSlug": "npm-runtime-major"
+		},
+		{
+			"description": "Group major .npmrc npm-version updates separately",
+			"matchManagers": ["custom.regex"],
+			"matchPackageNames": ["npm"],
+			"matchUpdateTypes": ["major"],
+			"groupName": "npm runtime major",
+			"groupSlug": "npm-runtime-major"
+		}
+	]
+}
