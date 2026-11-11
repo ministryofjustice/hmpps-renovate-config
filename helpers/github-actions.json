@@ -5,14 +5,28 @@
   ],
   "packageRules": [
     {
-      "description": "Automerge minor, patch, and digest updates to GitHub Actions",
+      "description": "Automerge minor, patch, and digest updates to GitHub Actions excluding ministryofjustice/hmpps-github-actions as we don't pin digests",
       "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "major"],
+      "excludePackageNames": ["ministryofjustice/hmpps-github-actions/*"],
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
       "automerge": true,
       "platformAutomerge": true,
-      "minimumReleaseAge": "7 days"
+      "minimumReleaseAge": "7 days",
+      "pinDigests": true
+    },
+    {
+      "description": "Automerge minor, patch, and digest updates to GitHub Actions only ministryofjustice/hmpps-github-actions as we don't pin digests",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "major"],
+      "matchPackageNames": ["ministryofjustice/hmpps-github-actions/*"],
+      "groupName": "Platform Updates",
+      "groupSlug": "platform-updates",
+      "automerge": true,
+      "platformAutomerge": true,
+      "minimumReleaseAge": "7 days",
+      "pinDigests": false
     }
   ]
 }
