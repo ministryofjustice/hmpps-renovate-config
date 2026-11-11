@@ -131,6 +131,7 @@
 			"description": "Look up Ministry of Justice scoped npm packages on npmjs",
 			"matchManagers": ["npm"],
 			"matchPackageNames": ["@ministryofjustice/**"],
+            "excludePackageNames": ["@ministryofjustice/hmpps-security-assurance-db-client"],
 			"registryUrls": ["https://registry.npmjs.org"]
 		},
 		{
