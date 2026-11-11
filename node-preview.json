@@ -2,44 +2,10 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>ministryofjustice/hmpps-renovate-config:base#f-test-renovate",
-    "github>ministryofjustice/hmpps-renovate-config://helpers/docker#f-test-renovate",
-    "github>ministryofjustice/hmpps-renovate-config://helpers/node#f-test-renovate",
-    "github>ministryofjustice/hmpps-renovate-config://helpers/helm#f-test-renovate",
-    "github>ministryofjustice/hmpps-renovate-config://helpers/github-actions#f-test-renovate"
+    "github>ministryofjustice/hmpps-renovate-config//helpers/docker.json#f-test-renovate",
+    "github>ministryofjustice/hmpps-renovate-config//helpers/node.json#f-test-renovate",
+    "github>ministryofjustice/hmpps-renovate-config//helpers/helm.json#f-test-renovate",
+    "github>ministryofjustice/hmpps-renovate-config//helpers/github-actions.json#f-test-renovate"
   ],
-  "prHourlyLimit": 0,
-  "packageRules": [
-    {
-      "labels": ["renovate-rule-5"],
-      "matchManagers": ["github-actions"],
-      "matchFileNames": [
-        "**/.github/workflows/**/*.ya?ml",
-        "**/.github/actions/**/*.ya?ml"
-      ],
-      "groupName": "github-actions",
-      "groupSlug": "github-actions",
-      "minimumReleaseAge": "7 days",
-      "pinDigests": true,
-      "pinVersions": true,
-      "recreateWhen": "always",
-      "automerge": true,
-      "automergeStrategy": "squash",
-      "automergeComment": "Automatically merged by Renovate",
-      "automergeType": "branch"
-    },
-    {
-      "labels": ["renovate-rule-6"],
-      "matchDatasources": ["docker","docker-compose"],
-      "groupName": "docker-updates",
-      "matchUpdateTypes": [
-        "digest",
-        "patch",
-        "minor"
-      ],     
-      "pinDigests": true,
-      "pinVersions": true,
-      "recreateWhen": "always",
-      "automerge": true
-    }    
-  ]
+  "prHourlyLimit": 0
 }
