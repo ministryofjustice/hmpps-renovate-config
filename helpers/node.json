@@ -125,6 +125,20 @@
 			"matchUpdateTypes": ["major"],
 			"groupName": "npm runtime major",
 			"groupSlug": "npm-runtime-major"
+		},
+		{
+			"labels": ["renovate-rule-node-12"],
+			"description": "Look up Ministry of Justice scoped npm packages on npmjs",
+			"matchManagers": ["npm"],
+			"matchPackageNames": ["@ministryofjustice/**"],
+			"registryUrls": ["https://registry.npmjs.org"]
+		},
+		{
+			"labels": ["renovate-rule-node-13"],
+			"description": "Look up the private database client on GitHub Packages",
+			"matchManagers": ["npm"],
+			"matchPackageNames": ["@ministryofjustice/hmpps-security-assurance-db-client"],
+			"registryUrls": ["https://npm.pkg.github.com"]
 		}
 	]
 }
