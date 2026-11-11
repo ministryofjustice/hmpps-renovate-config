@@ -26,7 +26,8 @@
       "recreateWhen": "always",
       "pinDigests": true,
       "automerge": true,
-      "platformAutomerge": true
+      "platformAutomerge": true,
+      "branchPrefix": "feat/heat-1708-hardened-docker-image"
     },
     {
       "description":"Update node-alpine 24 images to the hardened container images, usually is used for build stage",
@@ -41,7 +42,8 @@
       "recreateWhen": "always",
       "pinDigests": true,
       "automerge": true,
-      "platformAutomerge": true
+      "platformAutomerge": true,
+      "branchPrefix": "feat/heat-1708-hardened-docker-image"
     },
     {
       "description": "Update node 24 alpine images to the hardened container images that have date suffix, usually is used for build stage",
@@ -56,7 +58,8 @@
       "recreateWhen": "always",
       "pinDigests": true,
       "automerge": true,
-      "platformAutomerge": true
+      "platformAutomerge": true,
+      "branchPrefix": "feat/heat-1708-hardened-docker-image"
     },
     {
       "description":"Update node 26 alpine runtime images to the hardened container images that have date suffix",
@@ -71,7 +74,8 @@
       "recreateWhen": "always",
       "pinDigests": true,
       "automerge": true,
-      "platformAutomerge": true
+      "platformAutomerge": true,
+      "branchPrefix": "feat/heat-1708-hardened-docker-image"
     },
     {
       "description":"Update node-alpine 26 images to the hardened container images, usually is used for build stage",
@@ -86,7 +90,8 @@
       "recreateWhen": "always",
       "pinDigests": true,
       "automerge": true,
-      "platformAutomerge": true
+      "platformAutomerge": true,
+      "branchPrefix": "feat/heat-1708-hardened-docker-image"
     },
     {
       "description": "Update node 26 alpine images to the hardened container images that are usually used for build stage",
@@ -101,7 +106,8 @@
       "recreateWhen": "always",
       "pinDigests": true,
       "automerge": true,
-      "platformAutomerge": true
+      "platformAutomerge": true,
+      "branchPrefix": "feat/heat-1708-hardened-docker-image"
     },
     {
       "description": "If using public node 24 alpine images, update to the hardened container images that are usually used for build stage",
@@ -116,7 +122,8 @@
       "recreateWhen": "always",
       "pinDigests": true,
       "automerge": true,
-      "platformAutomerge": true
+      "platformAutomerge": true,
+      "branchPrefix": "feat/heat-1708-hardened-docker-image"
     }
 ,
     {
@@ -132,7 +139,8 @@
       "recreateWhen": "always",
       "pinDigests": true,
       "automerge": true,
-      "platformAutomerge": true
+      "platformAutomerge": true,
+      "branchPrefix": "feat/heat-1708-hardened-docker-image"
     }
   ]
 }
