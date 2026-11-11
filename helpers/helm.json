@@ -2,6 +2,7 @@
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"packageRules": [
 		{
+			"labels": ["renovate-rule-helm-01"],
 			"description": "Automerge patch updates to Helm chart dependencies",
 			"matchManagers": ["helmv3"],
 			"matchUpdateTypes": ["patch", "minor", "major", "digest"],

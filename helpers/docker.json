@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "labels": ["platform-updates"],
+      "labels": ["platform-updates", "renovate-rule-docker-01"],
       "matchDatasources": ["docker","docker-compose"],
       "groupName": "Platform Updates",
       "matchUpdateTypes": [
@@ -15,7 +15,7 @@
     },
     {
       "description":"Update node 24 alpine runtime images to the hardened container images that have date suffix",
-      "labels": ["platform-updates-replacement-1"],
+      "labels": ["platform-updates-replacement-1", "renovate-rule-docker-02"],
       "matchDatasources": ["docker","docker-compose"],
       "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
       "groupName": "Platform Updates",
@@ -30,7 +30,7 @@
     },
     {
       "description":"Update node-alpine 24 images to the hardened container images, usually is used for build stage",
-      "labels": ["platform-updates-replacement-2"],
+      "labels": ["platform-updates-replacement-2", "renovate-rule-docker-03"],
       "matchDatasources": ["docker","docker-compose"],
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
@@ -45,7 +45,7 @@
     },
     {
       "description": "Update node 24 alpine images to the hardened container images that have date suffix, usually is used for build stage",
-      "labels": ["platform-updates-replacement-3"],
+      "labels": ["platform-updates-replacement-3", "renovate-rule-docker-04"],
       "matchDatasources": ["docker","docker-compose"],
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
@@ -60,7 +60,7 @@
     },
     {
       "description":"Update node 26 alpine runtime images to the hardened container images that have date suffix",
-      "labels": ["platform-updates-replacement-4"],
+      "labels": ["platform-updates-replacement-4", "renovate-rule-docker-05"],
       "matchDatasources": ["docker","docker-compose"],
       "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
       "groupName": "Platform Updates",
@@ -75,7 +75,7 @@
     },
     {
       "description":"Update node-alpine 26 images to the hardened container images, usually is used for build stage",
-      "labels": ["platform-updates-replacement-5"],
+      "labels": ["platform-updates-replacement-5", "renovate-rule-docker-06"],
       "matchDatasources": ["docker","docker-compose"],
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
@@ -90,7 +90,7 @@
     },
     {
       "description": "Update node 26 alpine images to the hardened container images that are usually used for build stage",
-      "labels": ["platform-updates-replacement-6"],
+      "labels": ["platform-updates-replacement-6", "renovate-rule-docker-07"],
       "matchDatasources": ["docker","docker-compose"],
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
@@ -105,7 +105,7 @@
     },
     {
       "description": "If using public node 24 alpine images, update to the hardened container images that are usually used for build stage",
-      "labels": ["platform-updates-replacement-7"],
+      "labels": ["platform-updates-replacement-7", "renovate-rule-docker-08"],
       "matchDatasources": ["docker","docker-compose"],
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",
@@ -121,7 +121,7 @@
 ,
     {
       "description": "If using public node 26 alpine images, update to the hardened container images that are usually used for build stage",
-      "labels": ["platform-updates-replacement-8"],
+      "labels": ["platform-updates-replacement-8", "renovate-rule-docker-09"],
       "matchDatasources": ["docker","docker-compose"],
       "groupName": "Platform Updates",
       "groupSlug": "platform-updates",

@@ -11,6 +11,7 @@
 	],
 	"packageRules": [
 		{
+			"labels": ["renovate-rule-node-01"],
 			"description": "Group and automerge non-major npm dependency updates after checks pass",
 			"matchManagers": ["npm"],
 			"matchUpdateTypes": ["pin", "digest", "patch", "minor"],
@@ -21,12 +22,14 @@
 			"excludePackageNames": ["@ministryofjustice/hmpps-security-assurance-db-client"]
 		},
 		{
+			"labels": ["renovate-rule-node-02"],
 			"description": "Enable package.json engine updates, disabled by the shared Node preset",
 			"matchManagers": ["npm"],
 			"matchDepTypes": ["engines"],
 			"enabled": true
 		},
 		{
+			"labels": ["renovate-rule-node-03"],
 			"description": "Group and automerge non-major Node.js engine updates separately",
 			"matchManagers": ["npm"],
 			"matchDepTypes": ["engines"],
@@ -38,6 +41,7 @@
 			"platformAutomerge": true
 		},
 		{
+			"labels": ["renovate-rule-node-04"],
 			"description": "Group Node.js engine major updates with Node image major updates",
 			"matchManagers": ["npm"],
 			"matchDepTypes": ["engines"],
@@ -47,6 +51,7 @@
 			"groupSlug": "nodejs-runtime-major"
 		},
 		{
+			"labels": ["renovate-rule-node-05"],
 			"description": "Group and automerge non-major Node.js version file updates",
 			"matchManagers": ["nvm"],
 			"matchPackageNames": ["node"],
@@ -57,6 +62,7 @@
 			"platformAutomerge": true
 		},
 		{
+			"labels": ["renovate-rule-node-06"],
 			"description": "Group Node.js version file major updates with Node image major updates",
 			"matchManagers": ["nvm"],
 			"matchPackageNames": ["node"],
@@ -65,6 +71,7 @@
 			"groupSlug": "nodejs-runtime-major"
 		},
 		{
+			"labels": ["renovate-rule-node-07"],
 			"description": "Group Node.js Docker image major updates with Node runtime engine updates",
 			"matchDatasources": ["docker"],
 			"matchPackageNames": [
@@ -78,6 +85,7 @@
 			"groupSlug": "nodejs-runtime-major"
 		},
 		{
+			"labels": ["renovate-rule-node-08"],
 			"description": "Group and automerge non-major npm engine updates separately",
 			"matchManagers": ["npm"],
 			"matchDepTypes": ["engines"],
@@ -89,6 +97,7 @@
 			"platformAutomerge": true
 		},
 		{
+			"labels": ["renovate-rule-node-09"],
 			"description": "Group and automerge non-major npm-version settings from .npmrc",
 			"matchManagers": ["custom.regex"],
 			"matchPackageNames": ["npm"],
@@ -99,6 +108,7 @@
 			"platformAutomerge": true
 		},
 		{
+			"labels": ["renovate-rule-node-10"],
 			"description": "Group major npm engine updates separately",
 			"matchManagers": ["npm"],
 			"matchDepTypes": ["engines"],
@@ -108,6 +118,7 @@
 			"groupSlug": "npm-runtime-major"
 		},
 		{
+			"labels": ["renovate-rule-node-11"],
 			"description": "Group major .npmrc npm-version updates separately",
 			"matchManagers": ["custom.regex"],
 			"matchPackageNames": ["npm"],
