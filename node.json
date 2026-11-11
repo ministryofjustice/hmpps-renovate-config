@@ -1,17 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>ministryofjustice/hmpps-renovate-config:base.json"],
-  "enabledManagers": ["npm", "nvm", "dockerfile", "docker-compose", "helmv3", "helm-values", "github-actions", "pre-commit"],
+  "extends": ["github>ministryofjustice/hmpps-renovate-config:base"],
+  "enabledManagers": ["npm", "nvm", "dockerfile", "docker-compose", "helmv3", "helm-values", "github-actions", "pre-commit", "custom.regex"],
   "packageRules": [
     {
+      "labels": ["renovate-rule-node-preset-01"],
       "matchDepTypes": ["engines"],
       "enabled": false
     },
     {
+      "labels": ["renovate-rule-node-preset-02"],
       "matchDatasources": ["npm"],
       "minimumReleaseAge": "7 days"
     },
     {
+      "labels": ["renovate-rule-node-preset-03"],
       "matchManagers": ["github-actions"],
       "matchFileNames": [
         "**/.github/workflows/**/*.ya?ml",

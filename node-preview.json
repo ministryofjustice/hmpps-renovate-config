@@ -1,48 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>ministryofjustice/hmpps-renovate-config:base.json"],
-  "enabledManagers": ["npm", "nvm", "dockerfile", "docker-compose", "helmv3", "helm-values", "github-actions", "pre-commit"],
-  "packageRules": [
-    {
-      "matchDepTypes": ["engines"],
-      "enabled": false
-    },
-    {
-      "matchDatasources": ["npm"],
-      "minimumReleaseAge": "7 days"
-    },
-    {
-      "matchManagers": ["github-actions"],
-      "matchFileNames": [
-        "**/.github/workflows/**/*.ya?ml",
-        "**/.github/actions/**/*.ya?ml"
-      ],
-      "groupName": "github-actions",
-      "groupSlug": "github-actions",
-      "minimumReleaseAge": "7 days",
-      "pinDigests": true,
-      "pinVersions": true,
-      "rebaseWhen": "conflicted",
-      "automerge": true,
-      "automergeStrategy": "squash",
-      "automergeComment": "Automatically merged by Renovate",
-      "automergeType": "branch"
-    },
-    {
-      "matchDatasources": ["docker","docker-compose"],
-      "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
-      "matchCurrentValue": "24-alpine-runtime",
-      "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine-runtime",
-      "replacementVersion": "24-apko-main",
-      "pinDigests": true
-    },
-    {
-      "matchDatasources": ["docker","docker-compose"],
-      "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
-      "matchCurrentValue": "24-alpine",
-      "replacementName": "ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
-      "replacementVersion": "24-npm11-apko-main",
-      "pinDigests": true
-    }
-  ]
+  "extends": [
+    "./base",
+    "./helpers/docker",
+    "./helpers/node",
+    "./helpers/helm",
+    "./helpers/github-actions"
+  ],
+  "prHourlyLimit": 0
 }

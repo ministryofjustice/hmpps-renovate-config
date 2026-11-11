@@ -1,0 +1,145 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"customManagers": [
+		{
+			"customType": "regex",
+			"managerFilePatterns": ["/(^|/)\\.npmrc$/"],
+			"matchStrings": ["(^|\\n)npm-version\\s*=\\s*[\"']?(?<currentValue>[^\\s\"'#]+)"],
+			"depNameTemplate": "npm",
+			"datasourceTemplate": "npm"
+		}
+	],
+	"packageRules": [
+		{
+			"labels": ["renovate-rule-node-01"],
+			"description": "Group and automerge non-major npm dependency updates after checks pass",
+			"matchManagers": ["npm"],
+			"matchUpdateTypes": ["pin", "digest", "patch", "minor"],
+			"groupName": "Node.js dependency updates",
+			"groupSlug": "nodejs-dependency-updates",
+			"automerge": true,
+			"platformAutomerge": true,
+			"excludePackageNames": ["@ministryofjustice/hmpps-security-assurance-db-client"]
+		},
+		{
+			"labels": ["renovate-rule-node-02"],
+			"description": "Enable package.json engine updates, disabled by the shared Node preset",
+			"matchManagers": ["npm"],
+			"matchDepTypes": ["engines"],
+			"enabled": true
+		},
+		{
+			"labels": ["renovate-rule-node-03"],
+			"description": "Group and automerge non-major Node.js engine updates separately",
+			"matchManagers": ["npm"],
+			"matchDepTypes": ["engines"],
+			"matchPackageNames": ["node"],
+			"matchUpdateTypes": ["pin", "digest", "patch", "minor"],
+			"groupName": "Node.js runtime",
+			"groupSlug": "nodejs-runtime",
+			"automerge": true,
+			"platformAutomerge": true
+		},
+		{
+			"labels": ["renovate-rule-node-04"],
+			"description": "Group Node.js engine major updates with Node image major updates",
+			"matchManagers": ["npm"],
+			"matchDepTypes": ["engines"],
+			"matchPackageNames": ["node"],
+			"matchUpdateTypes": ["major"],
+			"groupName": "Node.js runtime major",
+			"groupSlug": "nodejs-runtime-major"
+		},
+		{
+			"labels": ["renovate-rule-node-05"],
+			"description": "Group and automerge non-major Node.js version file updates",
+			"matchManagers": ["nvm"],
+			"matchPackageNames": ["node"],
+			"matchUpdateTypes": ["pin", "digest", "patch", "minor"],
+			"groupName": "Node.js runtime",
+			"groupSlug": "nodejs-runtime",
+			"automerge": true,
+			"platformAutomerge": true
+		},
+		{
+			"labels": ["renovate-rule-node-06"],
+			"description": "Group Node.js version file major updates with Node image major updates",
+			"matchManagers": ["nvm"],
+			"matchPackageNames": ["node"],
+			"matchUpdateTypes": ["major"],
+			"groupName": "Node.js runtime major",
+			"groupSlug": "nodejs-runtime-major"
+		},
+		{
+			"labels": ["renovate-rule-node-07"],
+			"description": "Group Node.js Docker image major updates with Node runtime engine updates",
+			"matchDatasources": ["docker"],
+			"matchPackageNames": [
+				"node",
+				"ghcr.io/ministryofjustice/hmpps-node",
+				"ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine",
+				"ghcr.io/ministryofjustice/hmpps-hardened-container-images/node-alpine-runtime"
+			],
+			"matchUpdateTypes": ["major"],
+			"groupName": "Node.js runtime major",
+			"groupSlug": "nodejs-runtime-major"
+		},
+		{
+			"labels": ["renovate-rule-node-08"],
+			"description": "Group and automerge non-major npm engine updates separately",
+			"matchManagers": ["npm"],
+			"matchDepTypes": ["engines"],
+			"matchPackageNames": ["npm"],
+			"matchUpdateTypes": ["pin", "digest", "patch", "minor"],
+			"groupName": "npm runtime",
+			"groupSlug": "npm-runtime",
+			"automerge": true,
+			"platformAutomerge": true
+		},
+		{
+			"labels": ["renovate-rule-node-09"],
+			"description": "Group and automerge non-major npm-version settings from .npmrc",
+			"matchManagers": ["custom.regex"],
+			"matchPackageNames": ["npm"],
+			"matchUpdateTypes": ["pin", "digest", "patch", "minor"],
+			"groupName": "npm runtime",
+			"groupSlug": "npm-runtime",
+			"automerge": true,
+			"platformAutomerge": true
+		},
+		{
+			"labels": ["renovate-rule-node-10"],
+			"description": "Group major npm engine updates separately",
+			"matchManagers": ["npm"],
+			"matchDepTypes": ["engines"],
+			"matchPackageNames": ["npm"],
+			"matchUpdateTypes": ["major"],
+			"groupName": "npm runtime major",
+			"groupSlug": "npm-runtime-major"
+		},
+		{
+			"labels": ["renovate-rule-node-11"],
+			"description": "Group major .npmrc npm-version updates separately",
+			"matchManagers": ["custom.regex"],
+			"matchPackageNames": ["npm"],
+			"matchUpdateTypes": ["major"],
+			"groupName": "npm runtime major",
+			"groupSlug": "npm-runtime-major"
+		},
+		{
+			"labels": ["renovate-rule-node-12"],
+			"description": "Look up Ministry of Justice scoped npm packages on npmjs",
+			"matchManagers": ["npm"],
+			"matchPackageNames": ["@ministryofjustice/**"],
+            "excludePackageNames": ["@ministryofjustice/hmpps-security-assurance-db-client"],
+			"registryUrls": ["https://registry.npmjs.org"]
+		},
+		{
+			"labels": ["renovate-rule-node-13"],
+			"description": "Look up the private database client on GitHub Packages",
+			"matchManagers": ["npm"],
+			"matchPackageNames": ["@ministryofjustice/hmpps-security-assurance-db-client"],
+			"registryUrls": ["https://npm.pkg.github.com"]
+		}
+	]
+}
