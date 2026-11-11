@@ -2,41 +2,13 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>ministryofjustice/hmpps-renovate-config:base#f-test-renovate",
-    "github>ministryofjustice/hmpps-renovate-config://helpers/docker.json#f-test-renovate",
-    "github>ministryofjustice/hmpps-renovate-config://helpers/node.json#f-test-renovate",
-    "github>ministryofjustice/hmpps-renovate-config://helpers/helm.json#f-test-renovate",
-    "github>ministryofjustice/hmpps-renovate-config://helpers/github-actions.json#f-test-renovate"
+    "github>ministryofjustice/hmpps-renovate-config://helpers/docker#f-test-renovate",
+    "github>ministryofjustice/hmpps-renovate-config://helpers/node#f-test-renovate",
+    "github>ministryofjustice/hmpps-renovate-config://helpers/helm#f-test-renovate",
+    "github>ministryofjustice/hmpps-renovate-config://helpers/github-actions#f-test-renovate"
   ],
-  "enabledManagers": ["npm", "nvm", "dockerfile", "docker-compose", "helmv3", "helm-values", "github-actions", "pre-commit"],
   "prHourlyLimit": 0,
   "packageRules": [
-    {
-      "labels": ["renovate-rule-1"],
-      "matchDepTypes": ["engines"],
-      "enabled": false
-    },
-    {
-      "labels": ["renovate-rule-2"],
-      "matchDatasources": ["npm"],
-      "minimumReleaseAge": "7 days"
-    },
-    {
-      "labels": ["renovate-rule-3"],
-      "matchDatasources": ["npm"],
-      "matchUpdateTypes": [
-        "digest",
-        "patch",
-        "minor"
-      ],
-      "matchPackageNames": ["@ministryofjustice/**"],
-      "registryUrls": ["https://registry.npmjs.org"]
-    },
-    {
-      "labels": ["renovate-rule-4"],
-      "matchDatasources": ["npm"],
-      "matchPackageNames": ["@ministryofjustice/hmpps-security-assurance-db-client"],
-      "registryUrls": ["https://npm.pkg.github.com"]
-    },
     {
       "labels": ["renovate-rule-5"],
       "matchManagers": ["github-actions"],
