@@ -1,11 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "base",
-    "helpers/docker",
-    "helpers/node",
-    "helpers/helm",
-    "helpers/github-actions"
+    "./base",
+    "./helpers/docker",
+    "./helpers/node",
+    "./helpers/helm",
+    "./helpers/github-actions"
   ],
   "prHourlyLimit": 0
 }
