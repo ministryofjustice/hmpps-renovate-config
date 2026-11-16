@@ -1,11 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "./base",
-    "./helpers/docker",
-    "./helpers/node",
-    "./helpers/helm",
-    "./helpers/github-actions"
+    "github>ministryofjustice/hmpps-renovate-config//helpers/docker.json#feat/heat-1705-optimise-renovate-config",
+    "github>ministryofjustice/hmpps-renovate-config//helpers/node.json#feat/heat-1705-optimise-renovate-config",
+    "github>ministryofjustice/hmpps-renovate-config//helpers/helm.json#feat/heat-1705-optimise-renovate-config",
+    "github>ministryofjustice/hmpps-renovate-config//helpers/github-actions.json#feat/heat-1705-optimise-renovate-config"
   ],
   "prHourlyLimit": 0
 }

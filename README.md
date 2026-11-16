@@ -22,24 +22,9 @@ For contributions please contact the [#hmpps_dev](https://mojdt.slack.com/archiv
 
 You can read more about sharable config presets on the [Renovate docs](https://docs.renovatebot.com/config-presets/)
 
-### Opt-in Helm chart patch automerge
-
-Repositories can opt into automerging patch updates for Helm chart dependencies by extending the Helm helper:
-
-```json
-{
-  "extends": [
-    "github>ministryofjustice/hmpps-renovate-config:node",
-    "github>ministryofjustice/hmpps-renovate-config//helpers/helm.json"
-  ]
-}
-```
-
-The helper only matches `helmv3` patch updates. Minor and major chart updates, and container image updates in `helm-values`, are unaffected.
-
 ## Validating configuration
 
-The [Validate Renovate config workflow](.github/workflows/validate-renovate-config.yml) checks root-level presets and the Helm helper on pushes and pull requests, and can also be run manually.
+The [Validate Renovate config workflow](.github/workflows/validate-renovate-config.yml) checks all root-level JSON presets on pushes and pull requests, and can also be run manually.
 It uses Renovate's configuration validator in repository mode (`--no-global`) and fails on validation errors or warnings. Migration notices are reported but do not fail the check.
 
 To run the same validation locally with Docker, from the repository root:
@@ -49,7 +34,7 @@ docker run --rm \
   --volume "$PWD:/workspace:ro" \
   --workdir /workspace \
   ghcr.io/renovatebot/renovate:44.14.1 \
-  renovate-config-validator --no-global *.json helpers/helm.json
+  renovate-config-validator --no-global *.json
 ```
 
 ## Renovate Config
@@ -79,9 +64,9 @@ To help teams see what configuration Renovate is using we have set `"printConfig
 
 ### Node preview package registries
 
-The Node helper looks up `@ministryofjustice/*` npm packages on the public npm registry.
-The more specific rule for `@ministryofjustice/hmpps-security-assurance-db-client` uses GitHub Packages (`https://npm.pkg.github.com`) instead; keep it after the scope-wide rule so it takes precedence.
-Renovate's shared npm configuration does not provide an automatic per-package fallback between these registries. Add a specific GitHub Packages rule for each additional private package rather than relying on a two-registry URL list.
+The `node-preview` preset looks up `@ministryofjustice/*` npm packages on the public npm registry.
+The more specific rule for `@ministryofjustice/hmpps-security-assurance-db-client` uses GitHub Packages (`https://npm.pkg.github.com`) instead.
+Keep this exception after the scope-wide rule so it takes precedence.
 
 GitHub Packages requires authentication, including for public packages. Configure an npm `hostRules` entry matching `npm.pkg.github.com` with a token that has `read:packages` and access to the package, using your Renovate deployment's secure credential configuration.
 Do not commit plaintext tokens to this shared preset. Registry rules alone cannot fix missing credentials or package access.

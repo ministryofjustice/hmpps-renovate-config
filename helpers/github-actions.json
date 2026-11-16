@@ -5,7 +5,6 @@
   ],
   "packageRules": [
     {
-      "labels": ["renovate-rule-github-actions-01"],
       "description": "Automerge minor, patch, and digest updates to GitHub Actions excluding ministryofjustice/hmpps-github-actions as we don't pin digests",
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch", "digest", "major"],
@@ -18,7 +17,6 @@
       "pinDigests": true
     },
     {
-      "labels": ["renovate-rule-github-actions-02"],
       "description": "Automerge minor, patch, and digest updates to GitHub Actions only ministryofjustice/hmpps-github-actions as we don't pin digests",
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch", "digest", "major"],
