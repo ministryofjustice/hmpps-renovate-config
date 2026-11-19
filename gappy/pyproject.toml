@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gappy"
+version = "0.1.0"
+description = "Compare Docker-backed Dependabot and Renovate patch detection."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "click>=8.1,<9",
+  "pydantic>=2.10,<3",
+  "PyYAML>=6,<7",
+]
+
+[project.scripts]
+gappy = "gappy.cli:main"
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.15,<2",
+  "pytest>=8.3,<10",
+  "ruff>=0.11,<1",
+  "types-PyYAML",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gappy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not integration'"
+markers = ["integration: opt-in real Docker tests against a controlled registry"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src/gappy"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

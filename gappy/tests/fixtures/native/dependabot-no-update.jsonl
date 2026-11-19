@@ -1,0 +1,2 @@
+{"type": "update_dependency_list", "data": {"dependencies": [{"name": "gappy-fixture", "requirements": [{"file": "package.json", "groups": ["dependencies"], "requirement": "1.2.2", "source": null}], "version": "1.2.2"}], "dependency_files": ["/package.json"]}}
+{"type": "mark_as_processed", "data": {}}

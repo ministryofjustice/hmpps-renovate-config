@@ -1,0 +1,42 @@
+name: gappy-mirror
+
+services:
+  nexus:
+    image: sonatype/nexus3:3.98.1
+    ports:
+      - "127.0.0.1:8081:8081"
+    environment:
+      INSTALL4J_ADD_VM_PARAMS: "-Xms512m -Xmx1024m -XX:MaxDirectMemorySize=1024m -Djava.util.prefs.userRoot=/nexus-data/javaprefs"
+    volumes:
+      - nexus-data:/nexus-data
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8081/service/rest/v1/status"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+      start_period: 60s
+    restart: unless-stopped
+
+  gateway:
+    image: caddy:2.10.2-alpine
+    ports:
+      - "127.0.0.1:8443:8443"
+      - "127.0.0.1:8444:8444"
+      - "127.0.0.1:8084:8084"
+      - "127.0.0.1:8085:8085"
+    volumes:
+      - ./mirror.Caddyfile:/etc/caddy/Caddyfile:ro
+      - gateway-data:/data
+      - gateway-config:/config
+    depends_on:
+      nexus:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  nexus-data:
+    name: gappy-nexus-data
+    labels:
+      io.gappy.mirror: "true"
+  gateway-data:
+  gateway-config:

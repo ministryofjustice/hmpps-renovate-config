@@ -1,0 +1,19 @@
+{
+  "status": "verified-npm-policy-and-helm;other-ecosystems-uncertified",
+  "dependabot": {
+    "adapterVersion": "0.1.0",
+    "launcherVersion": "1.94.0",
+    "updaterImage": "ghcr.io/dependabot/dependabot-updater-npm@sha256:af427a401e54ae235c48a6acc3cedea0322ec0806ad9172e9882cf402cfa021a",
+    "updaterImage:github-actions": "ghcr.io/dependabot/dependabot-updater-github-actions@sha256:a32e1ed98d9637a858792a485e5cf52ee6e0bcea3fa49d879d2ec1334544646d",
+    "updaterImage:docker": "ghcr.io/dependabot/dependabot-updater-docker@sha256:1f7afac1ed36e1a044dfc326332826790030ba0e34e8954269ca52a7f3154e66",
+    "updaterImage:helm": "ghcr.io/dependabot/dependabot-updater-helm@sha256:5153b0024eb56cbb2e135860f90ef48650cb5ecd1aed242b01d9d8d60b110302",
+    "proxyImage": "ghcr.io/dependabot/proxy@sha256:6ac18f0e05e148c29d542dc3ce8edd91785e9d52dc56f115c7680da5d396aa08",
+    "platform": "linux/amd64"
+  },
+  "renovate": {
+    "adapterVersion": "0.1.0",
+    "version": "44.14.1",
+    "image": "ghcr.io/renovatebot/renovate@sha256:a34836ff19679185d51f78f84c5785c21cba57d28cdc2cd02bd88bb9024f235d",
+    "platform": "linux/arm64"
+  }
+}

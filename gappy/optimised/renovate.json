@@ -1,0 +1,106 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":disableDependencyDashboard"],
+  "enabledManagers": [
+    "npm",
+    "nvm",
+    "github-actions",
+    "dockerfile",
+    "docker-compose",
+    "helmv3",
+    "helm-values"
+  ],
+  "timezone": "Europe/London",
+  "prHourlyLimit": 0,
+  "minimumReleaseAge": "7 days",
+  "automerge": false,
+  "packageRules": [
+    {
+      "description": "optimised-npm: npm version updates",
+      "addLabels": ["dependencies", "npm", "config-id:optimised-npm"],
+      "matchManagers": ["npm"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "description": "optimised-npm-minor-patch: group non-major npm updates",
+      "addLabels": ["dependencies", "config-id:optimised-npm-minor-patch"],
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "npm minor and patch",
+      "groupSlug": "npm-minor-patch"
+    },
+    {
+      "description": "optimised-npm-major: group major npm updates",
+      "addLabels": ["dependencies", "config-id:optimised-npm-major"],
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["major"],
+      "groupName": "npm major",
+      "groupSlug": "npm-major"
+    },
+    {
+      "description": "optimised-npm-age-exceptions: immediate release eligibility",
+      "addLabels": ["dependencies", "config-id:optimised-npm-age-exceptions"],
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["typescript", "govuk-frontend"],
+      "minimumReleaseAge": "0 days"
+    },
+    {
+      "description": "optimised-node-types: suppress Node types major updates",
+      "addLabels": ["dependencies", "config-id:optimised-node-types"],
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@types/node"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "description": "optimised-infrastructure: group and pin infrastructure updates",
+      "addLabels": ["dependencies", "infrastructure", "config-id:optimised-infrastructure"],
+      "matchManagers": ["github-actions", "dockerfile", "docker-compose", "helmv3", "helm-values"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+      "groupName": "infrastructure",
+      "groupSlug": "infrastructure",
+      "pinDigests": true
+    },
+    {
+      "description": "optimised-actions: pin workflow dependencies",
+      "addLabels": ["dependencies", "github-actions", "config-id:optimised-actions"],
+      "matchManagers": ["github-actions"],
+      "pinDigests": true,
+      "matchFileNames": [".github/workflows/**/*.yml", ".github/workflows/**/*.yaml"]
+    },
+    {
+      "description": "optimised-shared-workflows: retain reusable workflow exclusions",
+      "addLabels": ["dependencies", "config-id:optimised-shared-workflows"],
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["ministryofjustice/hmpps-github-actions"],
+      "pinDigests": false,
+      "enabled": false
+    },
+    {
+      "description": "optimised-hmpps-node-ghcr: update existing GHCR references",
+      "addLabels": ["dependencies", "docker", "config-id:optimised-hmpps-node-ghcr"],
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ghcr.io/ministryofjustice/hmpps-node"],
+      "enabled": true,
+      "pinDigests": true
+    },
+    {
+      "description": "optimised-hmpps-node-migration: preserve tags when moving Docker Hub to GHCR",
+      "addLabels": ["dependencies", "docker", "config-id:optimised-hmpps-node-migration"],
+      "matchDatasources": ["docker"],
+      "matchPackageNames": [
+        "hmpps-node",
+        "library/hmpps-node",
+        "docker.io/hmpps-node",
+        "docker.io/library/hmpps-node",
+        "ministryofjustice/hmpps-node",
+        "docker.io/ministryofjustice/hmpps-node",
+        "index.docker.io/ministryofjustice/hmpps-node"
+      ],
+      "replacementName": "ghcr.io/ministryofjustice/hmpps-node",
+      "versioning": "docker",
+      "versionCompatibility": null,
+      "autoReplaceGlobalMatch": false
+    }
+  ]
+}

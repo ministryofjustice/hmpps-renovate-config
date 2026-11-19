@@ -1,0 +1,8 @@
+{
+  "name": "gappy-synthetic-scan",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "gappy-fixture": "1.2.2"
+  }
+}

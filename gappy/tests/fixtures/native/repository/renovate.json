@@ -1,0 +1,9 @@
+{
+  "enabledManagers": ["npm"],
+  "packageRules": [
+    {
+      "matchPackageNames": ["gappy-fixture"],
+      "registryUrls": ["https://host.docker.internal:18947/"]
+    }
+  ]
+}

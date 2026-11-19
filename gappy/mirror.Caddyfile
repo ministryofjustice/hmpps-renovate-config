@@ -1,0 +1,25 @@
+{
+	auto_https disable_redirects
+}
+
+https://host.docker.internal:8443 {
+	tls internal
+	reverse_proxy nexus:8081
+}
+
+https://host.docker.internal:8444 {
+	tls internal
+	@official path_regexp official ^/v2/([^/]+)/(tags/list|manifests/.*|blobs/.*)$
+	rewrite @official /v2/library/{re.official.1}/{re.official.2}
+	reverse_proxy nexus:8082
+}
+
+# docker-group (Docker Hub + GHCR) for direct pulls, e.g. localhost:8085/library/alpine:3.20.
+http://:8085 {
+	reverse_proxy nexus:8085
+}
+
+https://host.docker.internal:8084 {
+	tls internal
+	reverse_proxy nexus:8085
+}

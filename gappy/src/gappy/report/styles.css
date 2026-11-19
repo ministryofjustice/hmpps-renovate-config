@@ -1,0 +1,40 @@
+.report-shell { max-width: 100rem; }
+.table th, .table td { min-width: 9rem; }
+.table th:first-child { min-width: 15rem; overflow-wrap: anywhere; }
+.table td:last-child { min-width: 17rem; }
+.badge { white-space: normal; text-align: left; line-height: 1.4; }
+summary { cursor: pointer; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 36rem; overflow: auto; }
+.updates-only-empty, .updates-filter-count { display: none; }
+.table-filter-empty { display: none; }
+.table-filter-controls { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-bottom: 1rem; }
+.table-filter-controls p { flex-basis: 100%; margin: 0; }
+.table-filter-group { border: 0; margin: 0; padding: 0; }
+.table-filter-group legend { float: none; width: auto; font-size: .9rem; font-weight: 600; margin-bottom: .3rem; }
+.table-filter-choice { display: inline-flex; gap: .3rem; align-items: center; margin: .15rem .65rem .15rem 0; cursor: pointer; }
+.table-filter-choice input { accent-color: #0d6efd; }
+.dependency-filter > .form-check-input {
+  appearance: auto; width: 1.25rem; height: 1.25rem; cursor: pointer;
+  vertical-align: middle; accent-color: #0d6efd;
+}
+.dependency-filter > .form-check-label {
+  display: inline-flex; align-items: center; min-height: 2.75rem;
+  padding: .5rem .75rem; border: 1px solid #6c757d; border-radius: .375rem;
+  cursor: pointer; font-weight: 600;
+}
+.dependency-filter > .form-check-input:focus-visible + label {
+  outline: 3px solid #0d6efd; outline-offset: 2px;
+}
+.filter-state { margin-left: .75rem; font-size: .875rem; }
+.filter-state-focused { display: none; }
+#updates-only:checked ~ .filter-state-focused { display: inline; }
+#updates-only:checked ~ .filter-state-all { display: none; }
+#updates-only:checked ~ .filtered-dependencies [data-has-updates="false"],
+#updates-only:checked ~ .filtered-dependencies .unfiltered-count { display: none; }
+#updates-only:checked ~ .filtered-dependencies .updates-filter-count { display: inline-block; }
+#updates-only:checked ~ .filtered-dependencies .updates-only-empty { display: block; }
+@media print {
+  .report-shell { max-width: none; }
+  .table-responsive { overflow: visible; }
+  .card { break-inside: avoid; box-shadow: none !important; }
+}

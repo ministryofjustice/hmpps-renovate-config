@@ -62,6 +62,16 @@ You can override any of the configuration defined in `base.json` or the other pr
 
 To help teams see what configuration Renovate is using we have set `"printConfig": true` in `base.json` which logs the full resolved config each of the [GitHub App run logs](https://app.renovatebot.com/dashboard#github/ministryofjustice)
 
+### Node preview package registries
+
+The `node-preview` preset looks up `@ministryofjustice/*` npm packages on the public npm registry.
+The more specific rule for `@ministryofjustice/hmpps-security-assurance-db-client` uses GitHub Packages (`https://npm.pkg.github.com`) instead.
+Keep this exception after the scope-wide rule so it takes precedence.
+
+GitHub Packages requires authentication, including for public packages. Configure an npm `hostRules` entry matching `npm.pkg.github.com` with a token that has `read:packages` and access to the package, using your Renovate deployment's secure credential configuration.
+Do not commit plaintext tokens to this shared preset. Registry rules alone cannot fix missing credentials or package access.
+These rules control Renovate lookups; they do not change the registry settings used by application installs.
+
 ### Grouping by release type, per package manager
 
 To reduce the number of PRs raised teams can use the following the group updates for all minor and patch NPM dependencies:  
