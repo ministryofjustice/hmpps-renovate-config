@@ -1,0 +1,71 @@
+version: 2
+multi-ecosystem-groups:
+  infrastructure:
+    schedule:
+      interval: "weekly"
+    labels: ["infrastructure", "dependencies", "config-id:optimised-infrastructure"]
+    open-pull-requests-limit: 5
+  nodejs:
+    schedule:
+      interval: "weekly"
+    labels: ["nodejs", "dependencies", "config-id:optimised-nodejs"]
+    open-pull-requests-limit: 5
+
+updates:
+  - package-ecosystem: npm
+    labels: ["dependencies", "npm", "config-id:optimised-npm"]
+    multi-ecosystem-group: "nodejs"
+    directory: /
+    patterns: ["*"]
+    allow:
+      - dependency-type: direct
+    cooldown:
+      default-days: 7
+      exclude:
+        - typescript
+        - govuk-frontend
+        - "@ministryofjustice/frontend"
+    groups:
+      npm-minor-patch:
+        patterns: ["*"]
+        update-types: [minor, patch]
+      npm-major:
+        patterns: ["*"]
+        update-types: [major]
+    ignore:
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    labels: ["dependencies", "github-actions", "config-id:optimised-actions"]
+    multi-ecosystem-group: "infrastructure"
+    directory: /
+    patterns: ["*"]
+
+    # allow:
+    #   - dependency-type: direct
+    cooldown:
+      default-days: 7
+  - package-ecosystem: helm
+    labels: ["dependencies", "helm", "config-id:optimised-helm"]
+    multi-ecosystem-group: "infrastructure"
+    directory: /
+    patterns: ["*"]
+    cooldown:
+      default-days: 7
+  - package-ecosystem: docker
+    labels: ["dependencies", "docker", "config-id:optimised-docker"]
+    multi-ecosystem-group: "infrastructure"
+    directory: /
+    patterns: ["docker-compose.yml", "Dockerfile"]
+    cooldown:
+      default-days: 7
+  - package-ecosystem: docker-compose
+    labels: ["dependencies", "docker-compose", "config-id:optimised-compose"]
+    multi-ecosystem-group: "infrastructure"
+    directory: /
+    patterns: ["docker-compose.yml"]
+    allow:
+      - dependency-type: direct
+    cooldown:
+      default-days: 7

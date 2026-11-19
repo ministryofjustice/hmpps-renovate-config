@@ -1,0 +1,9 @@
+job:
+  package-manager: npm_and_yarn
+  allowed-updates:
+    - update-type: all
+  source:
+    provider: github
+    repo: gappy/synthetic-fixture
+    directory: /
+    commit: "0000000000000000000000000000000000000000"

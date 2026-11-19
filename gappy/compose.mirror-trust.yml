@@ -1,0 +1,33 @@
+services:
+  nexus-trust:
+    image: sonatype/nexus3:3.98.1
+    user: "0:0"
+    network_mode: none
+    entrypoint: ["/bin/sh", "/gappy/nexus-trust.sh"]
+    volumes:
+      - type: bind
+        source: ./nexus-trust.sh
+        target: /gappy/nexus-trust.sh
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./.gappy-mirror/source-ca.crt
+        target: /gappy/source-ca.crt
+        read_only: true
+        bind:
+          create_host_path: false
+      - nexus-trust:/gappy-trust
+    restart: "no"
+
+  nexus:
+    environment:
+      JAVA_TOOL_OPTIONS: "-Djavax.net.ssl.trustStore=/gappy-trust/cacerts -Djavax.net.ssl.trustStorePassword=changeit"
+    volumes:
+      - nexus-trust:/gappy-trust:ro
+    depends_on:
+      nexus-trust:
+        condition: service_completed_successfully
+
+volumes:
+  nexus-trust:

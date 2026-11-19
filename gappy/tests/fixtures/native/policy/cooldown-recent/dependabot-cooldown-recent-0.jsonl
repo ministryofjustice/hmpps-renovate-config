@@ -1,0 +1,2 @@
+{"data": {"dependencies": [{"name": "gappy-fixture", "requirements": [{"file": "package.json", "groups": ["dependencies"], "requirement": "1.2.0", "source": null}], "version": "1.2.0"}]}, "type": "update_dependency_list"}
+{"data": {"base-commit-sha": "bb493fc10c37ccc2ecd9533033b0465d933bf750"}, "type": "mark_as_processed"}
